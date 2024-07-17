@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+import colors from "react-multi-date-picker/plugins/colors";
 import { fontFamily } from "tailwindcss/defaultTheme";
-import tailwindFormPlugin from "@tailwindcss/forms";
 
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
@@ -11,10 +11,8 @@ function withOpacity(variableName) {
     return `rgb(var(${variableName}))`;
   };
 }
-
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: ['class', '[class="dark-mode"]'],
   theme: {
     extend: {
       colors: {
@@ -55,9 +53,5 @@ export default {
       },
     },
   },
-  plugins: [
-    tailwindFormPlugin({
-      strategy: "class",
-    }),
-  ],
+  plugins: [],
 };
