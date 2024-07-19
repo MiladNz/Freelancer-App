@@ -139,9 +139,9 @@ button:disabled {
   box-shadow: none;
 }
 
-label {
+/* label {
   display: block;
-}
+} */
 
 /* inupt number */
 input::-webkit-outer-spin-button,
