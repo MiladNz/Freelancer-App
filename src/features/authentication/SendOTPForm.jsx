@@ -5,8 +5,7 @@ import { getOtp } from "../../services/authService";
 import toast from "react-hot-toast";
 import Loading from "../../ui/Loading";
 
-function SendOTPForm({ setStep }) {
-  const [phonenumber, setPhoneNumber] = useState("");
+function SendOTPForm({ setStep, phoneNumber, onChange }) {
   const { isPending, error, data, mutateAsync } = useMutation({
     mutationFn: getOtp,
   });
@@ -14,7 +13,7 @@ function SendOTPForm({ setStep }) {
   const sendOtpHandler = async (e) => {
     e.preventDefault();
     try {
-      const data = await mutateAsync({ phonenumber });
+      const data = await mutateAsync({ phoneNumber });
       setStep(2);
       toast.success(data.message);
     } catch (error) {
@@ -27,12 +26,12 @@ function SendOTPForm({ setStep }) {
       <form className="space-y-10" onSubmit={sendOtpHandler}>
         <Textfield
           label="شماره موبایل"
-          name="phonenumber"
-          value={phonenumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          name="phoneNumber"
+          value={phoneNumber}
+          onChange={onChange}
         />
         <div>
-          {!isPending ? (
+          {isPending ? (
             <Loading />
           ) : (
             <button type="submit" className="btn btn--primary w-full">
