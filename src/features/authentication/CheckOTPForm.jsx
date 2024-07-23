@@ -8,7 +8,7 @@ import { HiArrowRight } from "react-icons/hi";
 import { CiEdit } from "react-icons/ci";
 import Loading from "../../ui/Loading";
 
-const RESEND_TIME = 3;
+const RESEND_TIME = 90;
 
 function CheckOTPForm({ phoneNumber, onBack, onReSendOtp, otpResponse }) {
   const [otp, setOtp] = useState("");
