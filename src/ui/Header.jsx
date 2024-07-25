@@ -1,5 +1,4 @@
-import useUser from "../features/authentication/useUser";
-
+import useUser from "../features/authentication/useUser.js";
 function Header() {
   const { data } = useUser();
   console.log(data);
