@@ -1,17 +1,37 @@
-import { TbFilter } from "react-icons/tb";
+import { useForm } from "react-hook-form";
 import TextField from "../../ui/Textfield";
 import { useState } from "react";
 
 function CreateProjectForm() {
-  const [title, setTitle] = useState("");
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
-    <form className="">
+    <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
       <TextField
         label="عنوان پروژه"
         name="title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        register={register}
+        required
+        validationSchema={{
+          required: "عنوان ضروری است",
+          minLength: {
+            value: 10,
+            message: "تعداد کاراکتر عنوان نامعتبر است",
+          },
+        }}
+        errors={errors}
       />
+      <button type="submit" className="btn btn--primary mt-2 w-full">
+        تایید
+      </button>
     </form>
   );
 }
