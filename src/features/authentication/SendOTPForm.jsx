@@ -5,15 +5,14 @@ import Textfield from "../../ui/Textfield";
 // import toast from "react-hot-toast";
 import Loading from "../../ui/Loading";
 
-function SendOTPForm({ onSubmit, isSendingOtp, phoneNumber, onChange }) {
+function SendOTPForm({ onSubmit, isSendingOtp, register }) {
   return (
     <div>
       <form className="space-y-10" onSubmit={onSubmit}>
         <Textfield
           label="شماره موبایل"
           name="phoneNumber"
-          value={phoneNumber}
-          onChange={onChange}
+          register={register}
         />
         <div>
           {isSendingOtp ? (

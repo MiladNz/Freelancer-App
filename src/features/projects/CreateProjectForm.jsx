@@ -24,8 +24,33 @@ function CreateProjectForm() {
           required: "عنوان ضروری است",
           minLength: {
             value: 10,
-            message: "تعداد کاراکتر عنوان نامعتبر است",
+            message: "حداقل 10 کاراکتر را وارد کنید",
           },
+        }}
+        errors={errors}
+      />
+      <TextField
+        label="توضیحات"
+        name="description"
+        register={register}
+        required
+        validationSchema={{
+          required: "توضیحات ضروری است",
+          minLength: {
+            value: 15,
+            message: "حداقل 15 کاراکتر را وارد کنید",
+          },
+        }}
+        errors={errors}
+      />
+      <TextField
+        label="بودجه"
+        name="budget"
+        type="number"
+        register={register}
+        required
+        validationSchema={{
+          required: "بودجه ضروری است",
         }}
         errors={errors}
       />
