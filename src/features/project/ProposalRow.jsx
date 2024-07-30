@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Table from "../../ui/Table";
 import truncateText from "../../utils/truncateText";
-
 import {
   toPersianNumbers,
   toPersianNumbersWithComma,
 } from "../../utils/toPersianNumbers";
+import Modal from "../../ui/Modal";
+import ChangeProposalStatus from "./ChangeProposalStatus";
 
 const statusStyle = [
   {
@@ -40,6 +41,15 @@ function ProposalRow({ proposal, index }) {
         </span>
       </td>
       <td>
+        <Modal
+          title="تغییر وضعیت درخواست"
+          open={open}
+          onClose={() => setOpen(false)}>
+          <ChangeProposalStatus
+            proposalId={proposal._id}
+            onClose={() => setOpen(false)}
+          />
+        </Modal>
         <button onClick={() => setOpen(true)}>تغییر وضعیت</button>
       </td>
     </Table.Row>
