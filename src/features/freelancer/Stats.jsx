@@ -28,7 +28,7 @@ function Stats({ proposals }) {
         title="کیف پول"
         value={toPersianNumbersWithComma(balance)}
         icon={<HiCollection className="w-20 h-20" />}
-        color="orange"
+        color="yellow"
       />
     </div>
   );
