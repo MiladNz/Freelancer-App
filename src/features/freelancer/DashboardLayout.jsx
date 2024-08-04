@@ -6,6 +6,7 @@ import Stats from "./Stats";
 function DashboardLayout() {
   const { isLoading, proposals } = useProposals();
   if (isLoading) return <Loading />;
+
   return (
     <div>
       <DashboardHeader />
@@ -13,5 +14,4 @@ function DashboardLayout() {
     </div>
   );
 }
-
 export default DashboardLayout;
