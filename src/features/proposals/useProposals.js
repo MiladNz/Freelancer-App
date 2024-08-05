@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { createProposalApi } from "../../services/proposalService";
+import { getProposalsApi } from "../../services/proposalService";
 
 export default function useProposals() {
   const { data, isLoading } = useQuery({
     queryKey: ["proposals"],
-    queryFn: createProposalApi,
+    queryFn: getProposalsApi,
   });
 
   const { proposals } = data || {};
